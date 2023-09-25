@@ -1,0 +1,38 @@
+<section class="population-wrapper">
+    <article class="population-wrapper__breadcrumb">
+            <a mat-button [routerLink]="[ '/home' ]">
+                <mat-icon>chevron_left</mat-icon>Home
+            </a>
+    </article>
+
+    <article class="population-wrapper__title">
+        <h1 class="population-wrapper__title--main">Population Data</h1>
+        <h2 class="population-wrapper__title--secondary">{{drilldowns.value !== 'State' ? 'National' : 'State'}}
+            Level</h2>
+    </article>
+    <!-- controls -->
+    <article class="population-wrapper__controls">
+        <form [formGroup]="populationOptionsForm">
+            <!-- Drilldown -->
+            <mat-form-field>
+                <mat-label>Drilldown</mat-label>
+                <mat-select formControlName="drilldown" #drilldowns>
+                    <mat-option [value]="option" *ngFor="let option of derilldownsOptions">{{option}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- State -->
+            <mat-form-field *ngIf="drilldowns.value === 'State'">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state" #states>
+                    <mat-option [value]="state" *ngFor="let state of statesOfAmerica">{{state}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+    </article>
+    <article class="population-wrapper__content">
+        <cen-chart class="population-wrapper__content" [chartData]="(populationData$ | async)"
+            [drilldown]="drilldowns.value" [seletedState]="populationOptionsForm.get('state')?.value"></cen-chart>
+    </article>
+</section>

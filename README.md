@@ -1,27 +1,57 @@
-# CensusCorp
+# Running Angular Project and Unit Tests
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+Hello, in this guide, I will be explaining how to run an Angular application and run unit tests using various commands.
 
-## Development server
+## Prerequisites
+Before we start, make sure you have both Node.js and npm installed.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Running Angular Project
 
-## Code scaffolding
+1. **Installation of Angular CLI**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    Angular CLI is a powerful tool to initialize, develop and maintain Angular applications. You can install it globally on your machine using npm:
 
-## Build
+        ```bash
+        npm install -g @angular/cli
+        ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Install dependencies**
 
-## Running unit tests
+    Now, navigate to the directory where the app is located, run the following command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+        ```bash
+        npm install
+        ```
 
-## Running end-to-end tests
+3. **Running the Application**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    Start the server:
 
-## Further help
+        ```bash
+        cd my-app
+        ng serve
+        ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files. The --open (or just -o) option automatically opens your browser to http://localhost:4200/.
+
+## Running Unit Tests
+
+1. **Angular Unit Testing**
+
+    Angular uses Jasmine for its test framework and Karma for its test runner. Karma is a tool that spawns a web server that executes source code against a configured set of browsers.
+
+2. **Running Unit Test Using Karma**
+
+   You can run your unit tests with the `ng test` command. It compiles your application and starts the Karma test runner.
+
+    ```bash
+    ng test
+    ```
+
+   The command line will output the test results in real time. By default, ng test starts Chrome and watches for tests. You can add the `--no-watch` flag to run your tests once and terminate the process.
+
+    ```bash
+    ng test --no-watch
+    ```
+
+I hope this document provides you a good understanding of how to start with your Angular project and how to test it.

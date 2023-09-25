@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="navbar">
+  <!-- logo and title -->
+  <section class="navbar__logo">
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <article class="navbar-logo">
+      <h3>Census Corp</h3>
+    </article>
+  </section>
+
+  <!-- links -->
+  <section class="navbar__links">
+    <button mat-icon-button *ngFor="let menuRoute of menuRoutesKeys" [matTooltip]="menuRoutes[menuRoute].label || ''"
+      [ngClass]="{'navbar__links--active': menuRoutes[menuRoute].route  === currentRoute }"
+      (click)="onNavigate(menuRoutes[menuRoute].route || 'not-found')">
+      <mat-icon>{{menuRoutes[menuRoute].icon}}</mat-icon>
+    </button>
+  </section>
+</mat-toolbar>
